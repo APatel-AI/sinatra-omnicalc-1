@@ -5,7 +5,7 @@
 
 <p>APR: <%= sprintf("%.4f%%", @apr) %></p>
 <p>Number of Years: <%= @years.to_i %></p>
-<p>Principal: $<%= sprintf("%.2f", @present_value) %></p>
-<p>Payment: $<%= sprintf("%.2f", @monthly_payment) %></p>
+<p>Principal: <%= @present_value.to_fs(:currency)   %></p>
+<p>Payment: <%= @monthly_payment.to_fs(:currency)   %></p>
 
 <a href="/payment/new">Calculate another payment</a>
