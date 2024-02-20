@@ -1,0 +1,11 @@
+
+
+
+<h1>Payment Results</h1>
+
+<p>APR: <%= sprintf("%.4f%%", @apr) %></p>
+<p>Number of Years: <%= @years.to_i %></p>
+<p>Principal: $<%= sprintf("%.2f", @present_value) %></p>
+<p>Payment: $<%= sprintf("%.2f", @monthly_payment) %></p>
+
+<a href="/payment/new">Calculate another payment</a>

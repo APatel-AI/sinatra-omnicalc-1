@@ -43,5 +43,23 @@ get("/random/results") do
   @random_number = rand(@min_number..@max_number)
   erb(:random_results)
 end
+
+
 get("/payment/new") do
+  erb(:payment)
+end
+
+
+post("/payment/results") do
+  @apr = params[:apr].to_f
+  @years = params[:years].to_f
+  @present_value = params[:present_value].to_f
+
+  monthly_interest_rate = @apr / 1200.0
+  number_of_payments = @years * 12
+  @monthly_payment = (@present_value * monthly_interest_rate) / (1 - (1 + monthly_interest_rate)**-number_of_payments)
+
+
+erb(:payment_results)
+
 end
