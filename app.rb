@@ -34,8 +34,14 @@ get("/square/root") do
 end
 
 get("/random/new") do
-  ""
+  erb(:random)
 end
 
+get("/random/results") do
+  @min_number = params[:user_min].to_f
+  @max_number = params[:user_max].to_f
+  @random_number = rand(@min_number..@max_number)
+  erb(:random_results)
+end
 get("/payment/new") do
 end
