@@ -1,6 +1,6 @@
 require "sinatra"
 require "sinatra/reloader"
-
+require "sinatra/contrib"
 get("/") do
   erb(:square)
 
@@ -53,7 +53,7 @@ end
 post("/payment/results") do
   @apr = params[:apr].to_f
   @years = params[:years].to_f
-  @present_value = params[:present_value].to_f
+  @present_value = params[:principal].to_f
 
   monthly_interest_rate = @apr / 1200.0
   number_of_payments = @years * 12
